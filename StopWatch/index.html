@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đồng hồ</title>
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+    <div class="timer">
+        <div class="screen-clock">
+            
+            <span id="minutes">00</span>:
+            <span id="seconds">00</span>:
+            <span id="milliseconds">00</span>
+        </div>
+        <div class="button">
+            <button id="start">Start</button>
+            <button id="stop">Stop</button>
+            <button id="reset">Reset</button>
+        </div>
+    </div>
+    <script> 
+        window.onload = function(){
+            
+        let minutes = 0;
+        let seconds = 0;
+        let milliseconds = 00;
+        let Interval;
+
+        let minutesContainer = document.querySelector('#minutes');
+        let secondsContainer = document.querySelector('#seconds');
+        let millisecondsContainer = document.querySelector('#milliseconds');
+        let startButton = document.querySelector('#start');
+        let stopButton = document.querySelector('#stop');
+        let resetButton = document.querySelector('#reset');
+
+        const startTimer = () =>{
+            milliseconds++;
+            if(milliseconds <= 9){
+                millisecondsContainer.innerHTML = '0' + milliseconds;
+            }
+            if(milliseconds > 9){
+                millisecondsContainer.innerHTML = milliseconds;
+            }
+            if(milliseconds > 99){
+                seconds++;
+                secondsContainer.innerHTML = '0' + seconds;
+                milliseconds = 0;
+                millisecondsContainer.innerHTML = '0' + 0;
+            }
+            if(seconds > 9){
+                secondsContainer.innerHTML = seconds;
+            }
+            if(seconds > 59){
+                minutes++;
+                minutesContainer.innerHTML = '0' + minutes;
+                seconds = 0;
+                secondsContainer.innerHTML = '0' + 0;
+            }
+        };
+        
+        startButton.onClick = () =>{
+            clearInterval(Interval);
+            Interval = setInterval(startTimer,10);
+        };
+
+        stopButton.onClick = () =>{
+            clearInterval(Interval);
+        }
+        resetButton.onClick = () =>{
+            clearInterval(Interval);
+            milliseconds = '00';
+            seconds = '00';
+            minutes = '00';
+            millisecondsContainer.innerHTML = milliseconds;
+            secondsContainer.innerHTML = seconds;
+            minutesContainer.innerHTML = minutes;
+        };
+    };
+    </script>
+</body>
+   
+
+
+</html>

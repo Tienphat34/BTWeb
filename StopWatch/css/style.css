@@ -1,0 +1,36 @@
+body {
+    display: flex;
+    justify-content: center;
+    background-color: #5BA8A0;
+    align-items: center;
+    height: 500px;
+}
+.timer {
+    
+    text-align: center;
+    
+}
+
+
+.screen-clock{
+    font-size: 47px;
+    background: white;
+    padding: 30px 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.screen-clock span{
+    width: 48px;
+}
+.button button{
+    margin: 8px;
+    border: none;
+    outline: none;
+    height: 43px;
+    width: 100px;
+    color: #1d2630;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 5px;
+    
+}
